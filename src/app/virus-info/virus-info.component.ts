@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
-import { Virus } from './virus';
+import { IVirus } from '../models/virus';
 
 @Component({
   selector: 'virus-info',
@@ -10,15 +10,17 @@ import { Virus } from './virus';
 export class VirusInfoComponent implements OnInit {
 
   url: string = 'https://coronavirus-19-api.herokuapp.com/countries/Russia';
-  
-  virus: Virus;
+  //спрятать .env
+  virus: IVirus;
 
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
-    this.http.get(this.url).subscribe((data: Virus) => this.virus=data);
+    this.http.get(this.url).subscribe((data: IVirus) => this.virus=data);
 
   }
 
 
 }
+
+//Написать юнит тесты

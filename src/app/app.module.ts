@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { VirusInfoComponent } from './virus-info/virus-info.component';
 import { HttpClientModule } from '@angular/common/http';
 
+
 @NgModule({
   declarations: [
     AppComponent,

@@ -1,6 +1,6 @@
 export interface IVirus {
-    cases: Number;
-    active: Number;
-    recovered: Number;
+    cases: number;
+    active: number;
+    recovered: number;
+    deaths: number;
 }
-//Перенести в отдельную папку models

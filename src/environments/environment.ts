@@ -3,7 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  url: 'https://coronavirus-19-api.herokuapp.com/countries/Russia'
 };
 
 /*

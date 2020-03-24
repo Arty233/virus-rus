@@ -32,10 +32,10 @@ describe('AppComponent', () => {
     expect(el.nativeElement.textContent.trim()).toBe('test');
   })
 
-  // it('should render title', () => {
-  //   const fixture = TestBed.createComponent(AppComponent);
-  //   fixture.detectChanges();
-  //   const compiled = fixture.nativeElement;
-  //   expect(compiled.querySelector('.content span').textContent).toContain('covid-russia-info app is running!');
-  // });
+  it('should render title', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement;
+    expect(compiled.querySelector('.content span').textContent).toContain('covid-russia-info app is running!');
+  });
 });

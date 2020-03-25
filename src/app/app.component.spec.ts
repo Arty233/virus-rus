@@ -25,17 +25,11 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('covid-russia-info');
   });
 
-  it('test', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    el = fixture.debugElement.query(By.css('#test'));
-    expect(el.nativeElement.textContent.trim()).toBe('test');
-  })
+  // it('test', () => {
+  //   const fixture = TestBed.createComponent(AppComponent);
+  //   fixture.detectChanges();
+  //   el = fixture.debugElement.query(By.css('#test'));
+  //   expect(el.nativeElement.textContent.trim()).toBe('test');
+  // })
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('covid-russia-info app is running!');
-  });
 });

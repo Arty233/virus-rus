@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { IVirus } from '../models/virus';
 import { environment } from '../../environments/environment';
@@ -13,11 +13,18 @@ export class VirusInfoComponent implements OnInit {
   // url: string = 'https://coronavirus-19-api.herokuapp.com/countries/Russia';
   //src enviroments.ts тудв конфиги
   virus: IVirus;
-
+  countries: string[] = ["China", "Italy", "USA", "Russia"];
+  currentCountry: string;
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
-    this.http.get(environment.url).subscribe((data: IVirus) => this.virus=data);
+    // this.http.get(environment.url).subscribe((data: IVirus) => this.virus=data);
+  }
+
+  changeCountry(newCountry: string) {
+    this.currentCountry = newCountry;
+    this.http.get(environment.url + this.currentCountry).subscribe((data: IVirus) => this.virus=data);
+    this.ngOnInit()
   }
 
 

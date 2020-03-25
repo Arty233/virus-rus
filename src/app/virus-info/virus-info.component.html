@@ -1,7 +1,18 @@
 <div class="virus-info">
-    <h1>Статистика короновируса в России</h1>
-    <p>Всего случаев: {{virus?.cases}}</p>
-    <p>Больных: {{virus?.active}}</p>
-    <p>Выздоровело: {{virus?.recovered}}</p>
-    <p>Погибло: {{ virus?.deaths }}</p>
+    <div class="form-group">
+        <form novalidate>
+            <label>Страна</label>
+            <select (change)="changeCountry($event.target.value)" class="form-control">
+                <option *ngIf="!currentCountry" value="">Выберите страну</option>
+                <option *ngFor="let country of countries" [value]="country">{{ country }}</option>
+            </select>
+        </form>
+    </div>
+    <div *ngIf="currentCountry">
+        <h1>Статистика короновируса в {{ currentCountry | translate}}</h1>
+        <p>Всего случаев: {{virus?.cases}}</p>
+        <p>Больных: {{virus?.active}}</p>
+        <p>Выздоровело: {{virus?.recovered}}</p>
+        <p>Погибло: {{ virus?.deaths }}</p>
+    </div>
 </div>

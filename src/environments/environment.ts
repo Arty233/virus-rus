@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  url: 'https://coronavirus-19-api.herokuapp.com/countries/Russia'
+  url: 'https://coronavirus-19-api.herokuapp.com/countries/'
 };
 
 /*

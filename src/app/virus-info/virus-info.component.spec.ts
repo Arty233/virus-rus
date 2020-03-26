@@ -1,6 +1,12 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { HttpClient } from '@angular/common/http'; 
+import { async, ComponentFixture, TestBed, inject } from '@angular/core/testing';
+import { HttpClient } from '@angular/common/http';
 import { VirusInfoComponent } from './virus-info.component';
+
+import {
+  HttpClientTestingModule,
+  HttpTestingController
+} from '@angular/common/http/testing';
+import { IVirus } from '../models/virus';
 
 describe('VirusInfoComponent', () => {
   let component: VirusInfoComponent;
@@ -9,11 +15,11 @@ describe('VirusInfoComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ VirusInfoComponent ],
-      imports: [],
-      providers: []
+      declarations: [VirusInfoComponent],
+      imports: [[HttpClientTestingModule]],
+      providers: [VirusInfoComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -24,16 +30,35 @@ describe('VirusInfoComponent', () => {
   });
 
 
+  // it(
+  //   'should get data',
+  //   inject(
+  //     [HttpTestingController, VirusInfoComponent],
+  //     (
+  //       httpMock: HttpTestingController,
+  //       dataService: VirusInfoComponent
+  //     ) => {
+  //       expect(component.changeCountry('Russia')).toBeTruthy();
+  //     }));
+
+
   it('should create', () => {
     expect(component).toBeTruthy();
   });
 
-  // it('should do math', () => {
-  //   const cases = component.virus.cases;
-  //   const active = component.virus.active;
-  //   const recovered = component.virus.recovered;
-  //   const deaths = component.virus.deaths;
-  //   const allCases: number = active + recovered + deaths;
-  //   expect(cases).toEqual(active + recovered + deaths);
-  // })
+  it('should get data', () => {
+    http.get('https://coronavirus-19-api.herokuapp.com/countries/Russia').subscribe(res => {
+      expect(res).toBeTruthy();
+    })
+  })
+
+  it('should do math', () => {
+    http.get('https://coronavirus-19-api.herokuapp.com/countries/Russia').subscribe((res: IVirus) => {
+      const cases = res.cases;
+      const active = res.active;
+      const recovered = res.recovered;
+      const deaths = res.deaths;
+      expect(cases).toEqual(active + recovered + deaths);
+    })
+  })
 });

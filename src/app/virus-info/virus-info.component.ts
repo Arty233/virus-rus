@@ -10,8 +10,6 @@ import { environment } from '../../environments/environment';
 })
 export class VirusInfoComponent implements OnInit {
 
-  // url: string = 'https://coronavirus-19-api.herokuapp.com/countries/Russia';
-  //src enviroments.ts тудв конфиги
   virus: IVirus;
   countries: string[] = ["China", "Italy", "USA", "Russia"];
   currentCountry: string;
